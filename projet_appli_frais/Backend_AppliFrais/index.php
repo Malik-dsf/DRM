@@ -38,7 +38,7 @@ include ('include\theme.php');
             </thead>
             <tbody>
                 <tr>
-                    <td><a href="">modifier</td>
+                    <td><a href="suivie_facture.php">inspecter</td>
                     <td>JJ-MM-YYYY</td>
                     <td>Frais de repas</td>
                     <td>0.00 EUR</td>

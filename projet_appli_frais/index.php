@@ -55,6 +55,8 @@ include("Backend_AppliFrais\include\log_bdd.php");
     // Vérification des informations d'authentification (en dur pour l'exemple)
     if ($username === "a" && $password === "b") {
         echo "Connexion réussie !";
+        header("Location: Backend_AppliFrais/index.php");
+        exit();
     } else {
         echo "Nom d'utilisateur ou mot de passe incorrect.";
     }
