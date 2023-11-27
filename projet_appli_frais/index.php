@@ -39,12 +39,16 @@ include("Backend_AppliFrais\include\log_bdd.php");
 
 
     //zone SQL
-    $sql = "SELECT nom_user FROM utilisateur  WHERE nom_user=$username";
-    $result = $connexion->query($sql);
+    $requete = $connexion->prepare("SELECT nom_user, motDePasse FROM utilisateur  WHERE nom_user=:username AND motDePasse=:passwords");
+    $requete->bindValue(':username', $username, PDO::PARAM_STR);
+    $requete->bindValue(':passwords', $password ,PDO::PARAM_STR);
+    $requete->execute();
+
+
 
 
     // Vérification des informations d'authentification (en dur pour l'exemple)
-    if($result->rowCount() > 0){
+    if($requete->rowCount() > 0){
       echo "Connexion réussie !";
       header("Location: backend_AppliFrais/index.php");
       exit();
