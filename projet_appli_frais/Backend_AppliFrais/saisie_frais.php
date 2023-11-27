@@ -26,23 +26,30 @@ include ('include\theme.php');
         
             <h3>Frais au forfait</h3>
             <label for="repmidi">repas midi :</label>
-            <input type="number" id="description" name="repmidi" step="1" required>
+            <input type="number" id="repmidi" name="repmidi" step="1" required>
             <label for="nuitee">Nuitées :</label>
-            <input type="number" id="nuitee" name="description" step="1" required>
+            <input type="number" id="nuitee" name="nuitee" step="1" required>
             <label for="etape">Etape :</label>
-            <input type="number" id="etape" name="description" step="1" required>
+            <input type="number" id="etape" name="etape" step="1" required>
             <label for="km">KM :</label>
-            <input type="number" id="km" name="description" step="0.1" required>
+            <input type="number" id="km" name="km" step="0.1" required>
 
 
             <h3>Hors forfait</h3>
             <label for="date">date d'hors forfait :</label>
             <input type="date" id="date" name="date" required>
-
+            <label for="repmidi">libelle :</label>
+            <input type="text" id="libelle" name="libelle" step="1" required>
+            
             <h3>Hors Classification</h3>
+            <label for="justificatif">nombre de Justificatif :</label>
+            <input type="number" id="justificatif" name="justificatif" step="1" required>
+            <label for="MontantT">Montant total :</label>
+            <input type="number" id="MontantT" name="MontantT" step="0.01" required>
 
             <button type="submit">Envoyer</button>
-            
+            <button type="clear">Annuler</button>
+
         </form>
     </div>
 </body>

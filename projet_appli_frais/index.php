@@ -37,10 +37,19 @@ include("Backend_AppliFrais\include\log_bdd.php");
     $username = $_POST["username"];
     $password = $_POST["password"];
 
+
+    //zone SQL
+    $sql = "SELECT nom_user FROM utilisateur  WHERE nom_user=$username";
+    $result = $connexion->query($sql);
+
+
     // Vérification des informations d'authentification (en dur pour l'exemple)
-    if ($username === "a" && $password === "b") {
-        echo "Connexion réussie !";
-    } else {
+    if($result->rowCount() > 0){
+      echo "Connexion réussie !";
+      header("Location: backend_AppliFrais/index.php");
+      exit();
+    }
+    else {
         echo "<p style='padding:10px; background-color:rgba(255, 117, 117, 0.77); border-radius:6px; margin-bottom:10px;'>Nom d'utilisateur ou mot de passe incorrect.</p>";
     }
   }
