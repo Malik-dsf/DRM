@@ -32,6 +32,20 @@ include("Backend_AppliFrais\include\log_bdd.php");
     <div class="container login-container">
       <div class="login-form">
         <h5 class="card-title text-center">Bienvenue sur SwissPharma</h5>
+        <?php
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    // Vérification des informations d'authentification (en dur pour l'exemple)
+    if ($username === "a" && $password === "b") {
+        echo "Connexion réussie !";
+    } else {
+        echo "<p style='padding:10px; background-color:rgba(255, 117, 117, 0.77); border-radius:6px; margin-bottom:10px;'>Nom d'utilisateur ou mot de passe incorrect.</p>";
+    }
+  }
+
+?>
         <form action="index.php" method="POST">
           <div class="form-group">
             <label for="username">Nom d'utilisateur :</label>
@@ -47,20 +61,7 @@ include("Backend_AppliFrais\include\log_bdd.php");
     </div>
   </div>
 
-<?php
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["username"];
-    $password = $_POST["password"];
 
-    // Vérification des informations d'authentification (en dur pour l'exemple)
-    if ($username === "a" && $password === "b") {
-        echo "Connexion réussie !";
-    } else {
-        echo "Nom d'utilisateur ou mot de passe incorrect.";
-    }
-  }
-
-?>
 
 
   <div class="main-section">

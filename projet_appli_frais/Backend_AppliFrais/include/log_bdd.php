@@ -12,7 +12,7 @@ try{
     $connexion->exec('set names utf8');
 }
 catch(PDOException $e){
-    echo "PROBLEME DE CONNECTION A LA BDD!!!!";
+    echo "<p Style='position:absolute; background-color:red; color:#fff; padding:10px; border-radius:6px;'>PROBLEME DE CONNECTION A LA BDD!!!!</p>";
 }
 
 ?>
