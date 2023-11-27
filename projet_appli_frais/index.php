@@ -53,7 +53,7 @@ include("Backend_AppliFrais\include\log_bdd.php");
     $password = $_POST["password"];
 
     // Vérification des informations d'authentification (en dur pour l'exemple)
-    if ($username === "utilisateur" && $password === "motdepasse") {
+    if ($username === "a" && $password === "b") {
         echo "Connexion réussie !";
     } else {
         echo "Nom d'utilisateur ou mot de passe incorrect.";

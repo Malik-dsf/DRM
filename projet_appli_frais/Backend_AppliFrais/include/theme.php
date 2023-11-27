@@ -14,6 +14,15 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li {
   box-sizing: border-box;
 }
 
+
+.dashboard-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
 .img_main{
 
     text-align: center;
@@ -71,6 +80,26 @@ nav a:hover {
     color: #333;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #444;
+    color: white;
+}
+
 @media only screen and (max-width: 600px) {
             nav {
                 flex-direction: column;
@@ -88,7 +117,7 @@ nav a:hover {
 <nav>
     <a href="index.php" ><img class="img_nav" src="media_back\LogoSwissPharma.png" alt="Membre1"></a>
     <a href="index.php">Menu</a>
-    <a href="suivie_facture.php">Notes de Frais</a>
+    <a href="suivie_facture.php">Mes Notes de Frais</a>
 </nav>
 
     
