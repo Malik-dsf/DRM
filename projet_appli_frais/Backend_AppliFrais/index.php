@@ -1,10 +1,15 @@
 <?php
 
 require_once ("include\log_bdd.php");
-
-
 include ('include\theme.php');
+session_start();
 
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+    header("location: login.php");
+    exit();
+}
+
+$messageBienvenue = "<h2>Bienvenue sur votre tableau de bord </h2>" . $_SESSION["username"] . "!";
 
 ?>
 
@@ -13,7 +18,6 @@ include ('include\theme.php');
 <html>
 	<head>
 		<title>AppliFrais</title>
-    
     </head>
 
     <body>
@@ -22,8 +26,11 @@ include ('include\theme.php');
 
       </div>
       <div class="dashboard-container">
-        <h2>Bienvenue sur votre tableau de bord</h2>
+
+      <?php
         
+        echo($messageBienvenue);
+      ?>
 
         <div class="">
         <h3>Liste des Frais de Notes</h3>

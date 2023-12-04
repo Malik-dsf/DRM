@@ -48,15 +48,24 @@ include("Backend_AppliFrais\include\log_bdd.php");
 
 
     // Vérification des informations d'authentification (en dur pour l'exemple)
-    if($requete->rowCount() > 0){
+
+    if ($requete->rowCount() > 0) {
+      // Authentification réussie
+      session_start();  // Démarre une nouvelle session ou reprend la session existante
       echo "Connexion réussie !";
+
+      $_SESSION["loggedin"] = true;
+      $_SESSION["username"] = $username;
       header("Location: backend_AppliFrais/index.php");
       exit();
-    }
+    } 
     else {
-        echo "<p style='padding:10px; background-color:rgba(255, 117, 117, 0.77); border-radius:6px; margin-bottom:10px;'>Nom d'utilisateur ou mot de passe incorrect.</p>";
+      // Authentification échouée
+      echo "<p style='padding:10px; background-color:rgba(255, 117, 117, 0.77); border-radius:6px; margin-bottom:10px;'>Nom d'utilisateur ou mot de passe incorrect.</p>";
     }
+
   }
+
 
 ?>
         <form action="index.php" method="POST">
