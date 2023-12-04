@@ -2,14 +2,17 @@
 
 require_once ("include\log_bdd.php");
 include ('include\theme.php');
-session_start();
+
+session_start(); 
+
 
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-    header("location: login.php");
-    exit();
+    $messageBienvenue = "error";
+}
+else{
+    $messageBienvenue = "<h2>Bienvenue sur votre tableau de bord <u>" . $_SESSION["username"] . "</u>!</h2>";
 }
 
-$messageBienvenue = "<h2>Bienvenue sur votre tableau de bord </h2>" . $_SESSION["username"] . "!";
 
 ?>
 
@@ -44,8 +47,16 @@ $messageBienvenue = "<h2>Bienvenue sur votre tableau de bord </h2>" . $_SESSION[
                 </tr>
             </thead>
             <tbody>
+                <?php
+
+                    $sql = "SELECT idFrais , date , montant , type  FROM note_de_frais WHERE idUtilisateur = utilisateur.idUtilisateur";
+                    $requete = $connexion->prepare($sql);
+                    $requete->execute();
+
+
+                ?>
                 <tr>
-                    <td><a href="suivie_facture.php">inspecter</td>
+                    <td><a href="tmp/facture_d.php">inspecter</td>
                     <td>JJ-MM-YYYY</td>
                     <td>Frais de repas</td>
                     <td>0.00 EUR</td>

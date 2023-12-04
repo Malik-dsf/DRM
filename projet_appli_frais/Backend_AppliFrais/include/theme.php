@@ -118,7 +118,8 @@ th {
     <a href="index.php" ><img class="img_nav" src="media_back\LogoSwissPharma.png" alt="Membre1"></a>
     <a href="index.php">Menu</a>
     <a href="suivie_facture.php">Mes Notes de Frais</a>
-    <a href="saisie_frais.php">Nouvelles Saisie</a>
+    <a href="saisie_frais.php">Nouvelles Saisies</a>
+    <a href="deconnexion.php">Déconnexion</a>
 </nav>
 
     

@@ -48,16 +48,13 @@ include("Backend_AppliFrais\include\log_bdd.php");
 
 
     // Vérification des informations d'authentification (en dur pour l'exemple)
-
     if ($requete->rowCount() > 0) {
       // Authentification réussie
       session_start();  // Démarre une nouvelle session ou reprend la session existante
       echo "Connexion réussie !";
-
       $_SESSION["loggedin"] = true;
       $_SESSION["username"] = $username;
       header("Location: backend_AppliFrais/index.php");
-      exit();
     } 
     else {
       // Authentification échouée

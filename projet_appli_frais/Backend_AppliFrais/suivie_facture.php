@@ -4,8 +4,9 @@
 
 
 include ('include\theme.php');
-include ('..\include\loggin.php');
-
+session_start(); 
+echo($_SESSION["username"]);
+echo($_SESSION["loggedin"]);
 
 ?>
 
