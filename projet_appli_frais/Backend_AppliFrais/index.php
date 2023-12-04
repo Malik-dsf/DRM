@@ -49,7 +49,7 @@ else{
             <tbody>
                 <?php
 
-                    $sql = "SELECT idFrais , date , montant , type  FROM note_de_frais WHERE idUtilisateur = utilisateur.idUtilisateur";
+                    $sql = "SELECT nf.idnotedefrais, nf.date, nf.montant, nf.type FROM note_de_frais nf JOIN utilisateur u ON nf.idUtilisateur = u.idUtilisateur WHERE u.nom = 'malik'";
                     $requete = $connexion->prepare($sql);
                     $requete->execute();
 
