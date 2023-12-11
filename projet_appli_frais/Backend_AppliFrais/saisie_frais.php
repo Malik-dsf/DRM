@@ -7,6 +7,26 @@ include ('include\theme.php');
 
 ?>
 
+
+<script>
+function ajoutLigne() {
+    var container = document.getElementById("ContainerHorsForfait");
+    var newRow = container.children[0].cloneNode(true);
+
+    // Effacer les valeurs des champs clonés
+    var inputs = newRow.getElementsByTagName("input");
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = "";
+    }
+
+    // Ajouter la nouvelle ligne clonée au conteneur
+    container.appendChild(newRow);
+}
+
+</script>
+
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +39,11 @@ include ('include\theme.php');
         <!-- Formulaire de saisie de frais -->
         <h3>Saisie de Frais</h3>
         <form action="traitement_saisie_frais.php" method="post">
-            <label for="date">periode d'engagement :</label>
-            <input type="date" id="date" name="date" required>
+            <h2>periode d'engagement</h2>
+            <label for="mois">Mois :</label>
+            <input type="number" id="mois" name="mois" min="1" max="12" required>
+            <label for="annee">Année :</label>
+            <input type="number" id="annee" name="annee" min="1900" max="9999" required>
 
 
         
@@ -36,10 +59,17 @@ include ('include\theme.php');
 
 
             <h3>Hors forfait</h3>
-            <label for="date">date d'hors forfait :</label>
-            <input type="date" id="date" name="date" required>
-            <label for="repmidi">libelle :</label>
-            <input type="text" id="libelle" name="libelle" step="1" required>
+            <div id="ContainerHorsForfait">
+                <div class="ligneHorsForfait">
+                    <label for="date">Date d'hors forfait :</label>
+                    <input type="date" name="dateHorsForfait[]" required>
+                    <label for="libelle">Libellé :</label>
+                    <input type="text" name="libelleHorsForfait[]" required>
+                    <label for="Qt">Quantité :</label>
+                    <input type="number" name="QtHorsForfait[]" step="1" required>
+                </div>
+            </div>
+            <button type="button" onclick="ajoutLigne()">+</button>
             
             <h3>Hors Classification</h3>
             <label for="justificatif">nombre de Justificatif :</label>
@@ -48,7 +78,7 @@ include ('include\theme.php');
             <input type="number" id="MontantT" name="MontantT" step="0.01" required>
 
             <button type="submit">Envoyer</button>
-            <button type="clear">Annuler</button>
+            <button type="reset">Annuler</button>
 
         </form>
     </div>
