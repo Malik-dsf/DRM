@@ -19,7 +19,7 @@ if ($resultat) {
     $dateEmbauche = $resultat['dateEmbauche'];
 
     // Tu peux maintenant utiliser ces variables comme nécessaire
-    $messageBienvenue = "<h2>Bienvenue sur votre tableau de bord <u>" . $prenom . "</u>!</h2>";
+    $messageBienvenue = "Bienvenue sur votre tableau de bord <u>" . $prenom . "</u>!";
 } else {
     // Gérer le cas où aucune donnée n'a été trouvée
     $messageBienvenue = "Aucun utilisateur trouvé pour le nom d'utilisateur : " . $username;
@@ -46,11 +46,13 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 </head>
 
 <body>
-<div id="containerMain" class="container">
+<div class="containerMain" >
     <div class="planche_p">
+        <h2 id="messageBienV">
         <?php
         echo ($messageBienvenue);
-        ?><br><br>
+        ?>
+        </h2><br><br>
 
     </div>
 

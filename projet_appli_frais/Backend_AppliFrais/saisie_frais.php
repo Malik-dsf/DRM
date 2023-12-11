@@ -44,7 +44,7 @@ function ajoutLigne() {
     <title>saisie de frais</title>
 </head>
 <body>
-<div class="dashboard-container">
+<div class="dashboard-container containerMain">
 
         <!-- Formulaire de saisie de frais -->
         <h3>Saisie de Frais</h3>
