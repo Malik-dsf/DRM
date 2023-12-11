@@ -12,5 +12,4 @@ session_destroy();
 // Rediriger vers la page de connexion par exemple
 header("location: ..\..\index.php");
 echo("fdsfds")
-exit();
 ?>

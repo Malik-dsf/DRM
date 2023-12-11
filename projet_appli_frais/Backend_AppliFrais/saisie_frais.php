@@ -2,11 +2,9 @@
 
 <?php
 
-
+require_once("include\log_bdd.php"); //connection a la base de données
 include ('include\theme.php');
-session_start(); 
-echo($_SESSION["username"]);
-echo($_SESSION["loggedin"]);
+
 ?>
 
 <head>

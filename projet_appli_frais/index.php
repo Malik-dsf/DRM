@@ -14,6 +14,7 @@ include("Backend_AppliFrais\include\log_bdd.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Connexion - DRM</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="media/LogoSwissPharma.png" type="image/x-icon">
 </head>
 
 <body>
@@ -133,7 +134,7 @@ include("Backend_AppliFrais\include\log_bdd.php");
     <div class="team-member">
       <img src="media/pexels-allan-mas-5383809.jpg" alt="Membre1">
       <div class="member-info">
-        <h3>Nom du Membre 1</h3>
+        <h3>Malik</h3>
         <p>Description du Membre 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
     </div>
@@ -141,11 +142,24 @@ include("Backend_AppliFrais\include\log_bdd.php");
     <div class="team-member">
       <img src="media/pexels-allan-mas-5383809.jpg" alt="Membre2">
       <div class="member-info">
-        <h3>Nom du Membre 2</h3>
+        <h3>Radu</h3>
         <p>Description du Membre 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
     </div>
-
+    <div class="team-member">
+      <img src="media/pexels-allan-mas-5383809.jpg" alt="Membre2">
+      <div class="member-info">
+        <h3>Davi</h3>
+        <p>Description du Membre 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+    <div class="team-member">
+      <img src="media/pexels-allan-mas-5383809.jpg" alt="Membre2">
+      <div class="member-info">
+        <h3>Ryan</h3>
+        <p>Description du Membre 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
     <!-- Ajoutez plus de membres selon le même modèle -->
   </div>
 
