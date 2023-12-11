@@ -25,7 +25,7 @@
 
     <div class="form login-container">
       <div class="login-form">
-        <h5 class="card-title text-center">Bienvenue sur SwissPharma</h5>
+        <h5 class="card-title text-center">Bienvenue sur <font style="color:red;">Swiss</font><font style="color:green;">Pharma</font></h5>
 
       <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
