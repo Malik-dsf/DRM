@@ -3,7 +3,7 @@
 require_once("include\log_bdd.php"); //connection a la base de données
 include ('include\theme.php');
 include("include/styles_link.php");
-
+$username = $_SESSION["username"];
 $dateduj = date('Y-m-d');
 $jour = date('d', strtotime($dateduj));
 $mois = date('m', strtotime($dateduj));
@@ -59,13 +59,13 @@ function ajoutLigne() {
         
             <h3>Frais au forfait</h3>
             <label for="repmidi">repas midi :</label>
-            <input type="number" id="repmidi" name="repmidi" step="1" required>
+            <input type="number" id="repmidi" name="repmidi" min="0" value="0" step="1" required>
             <label for="nuitee">Nuitées :</label>
-            <input type="number" id="nuitee" name="nuitee" step="1" required>
+            <input type="number" id="nuitee" name="nuitee" min="0" value="0" step="1" required>
             <label for="etape">Etape :</label>
-            <input type="number" id="etape" name="etape" step="1" required>
+            <input type="number" id="etape" name="etape" min="0" value="0" step="1" required>
             <label for="km">KM :</label>
-            <input type="number" id="km" name="km" step="0.1" required>
+            <input type="number" id="km" name="km" min="0" value="0" step="0.1" required>
 
 
             <h3>Hors forfait</h3>
@@ -76,16 +76,16 @@ function ajoutLigne() {
                     <label for="libelle">Libellé :</label>
                     <input type="text" name="libelleHorsForfait[]" required>
                     <label for="Qt">Quantité :</label>
-                    <input type="number" name="QtHorsForfait[]" step="1" required>
+                    <input type="number" name="QtHorsForfait[]" min="0" value="0" step="1" required>
                 </div>
             </div>
             <button type="button" onclick="ajoutLigne()">+</button>
             
             <h3>Hors Classification</h3>
             <label for="justificatif">nombre de Justificatif :</label>
-            <input type="number" id="justificatif" name="justificatif" step="1" required>
+            <input type="number" id="justificatif" name="justificatif" min="0" value="0" step="1" required>
             <label for="MontantT">Montant total :</label>
-            <input type="number" id="MontantT" name="MontantT" step="0.01" required>
+            <input type="number" id="MontantT" name="MontantT" min="0" value="0" step="0.01" required>
 
             <button type="submit">Envoyer</button>
             <button type="reset">Annuler</button>
@@ -93,4 +93,40 @@ function ajoutLigne() {
         </form>
     </div>
 </body>
+
+<?php
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if(isset($_POST['mois'], $_POST['annee'], $_POST['MontantT'])) {
+            $mois = $_POST["mois"];
+            $annee = $_POST["annee"];
+            $repmidi = $_POST["repmidi"];
+            $nuitee = $_POST["nuitee"];
+            $etape = $_POST["etape"];
+            $km = $_POST["km"];
+            $dateHorsForfait = $_POST["dateHorsForfait"];
+            $libelleHorsForfait = $_POST["libelleHorsForfait"];
+            $QtHorsForfait = $_POST["QtHorsForfait"];
+            $justificatif = $_POST["justificatif"];
+            $MontantT = $_POST["MontantT"];
+
+            $moisAnnee = $mois . '-' . $annee;
+
+            
+            $stmt = $bdd->prepare("INSERT INTO note_de_frais(moisAnnee, repmidi, nuitee, etape, km, dateHorsForfait, libelleHorsForfait, QtHorsForfait, justificatif, MontantT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssssssssss", $moisAnnee, $repmidi, $nuitee, $etape, $km, $dateHorsForfait, $libelleHorsForfait, $QtHorsForfait, $justificatif, $MontantT);
+            $stmt->execute();
+            $stmt->close();
+            header("Location: saisie_frais.php");
+            exit();
+        }
+    }
+}
+
+
+?>
+
+
 </html>
