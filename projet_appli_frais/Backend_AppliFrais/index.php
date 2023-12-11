@@ -4,6 +4,8 @@ require_once("include\log_bdd.php"); //connection a la base de données
 include('include\theme.php');
 
 
+
+
 $username = $_SESSION["username"];
 $requete = $connexion->prepare("SELECT u.prenom, u.nom, u.idroles, u.email, u.dateEmbauche, r.libelle FROM utilisateur u JOIN roles r ON u.idroles = r.id_role WHERE u.nom_user=:username");
 $requete->bindValue(':username', $username, PDO::PARAM_STR);
@@ -40,17 +42,21 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 <head>
     <title>AppliFrais</title>
+    <?php include("include/styles_link.php"); ?>
 </head>
 
 <body>
+<div id="containerMain" class="container">
     <div class="planche_p">
         <?php
         echo ($messageBienvenue);
-        ?>
+        ?><br><br>
 
     </div>
 
-    </div>
+   
+
+
     <div class="dashboard-container">
 
         <div class="">
@@ -86,8 +92,6 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 
 
     <div class="dashboard-container">
-
-
         <div class="">
             <h3>Liste de mes Frais de Notes</h3>
             <table>
@@ -102,7 +106,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 </thead>
                 <tbody>
                     <?php
-                    $requete = $connexion->prepare("SELECT ndf.idnotedefrais, ndf.montant, ndf.moisAnnee, ndf.idStatus, s.libelle , ndf.idType, t.libelle AS type_libelle  FROM note_de_frais ndf JOIN utilisateur u ON ndf.idUtilisateur = u.idUtilisateur JOIN status s ON ndf.idStatus = s.id_status JOIN types t ON ndf.idType = t.id_types WHERE u.nom_user = :username");
+                    $requete = $connexion->prepare("SELECT ndf.idnotedefrais, ndf.montant, ndf.date, ndf.idStatus, s.libelle , ndf.idType, t.libelle AS type_libelle  FROM note_de_frais ndf JOIN utilisateur u ON ndf.idUtilisateur = u.idUtilisateur JOIN status s ON ndf.idStatus = s.id_status JOIN types t ON ndf.idType = t.id_types WHERE u.nom_user = :username");
                     $requete->bindValue(':username', $username, PDO::PARAM_STR);
                     $requete->execute();
                     $resultats = $requete->fetchAll(PDO::FETCH_ASSOC);
@@ -112,7 +116,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         foreach ($resultats as $resultat) {
                             echo("<tr>");
                             echo("<td>{$resultat['idnotedefrais']}</td>");
-                            echo("<td>{$resultat['moisAnnee']}</td>");
+                            echo("<td>{$resultat['date']}</td>");
                             echo("<td>{$resultat['type_libelle']}</td>");
                             echo("<td>{$resultat['montant']}€</td>");
                             echo("<td>{$resultat['libelle']}</td>");
@@ -178,7 +182,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         echo ('</tbody></div></table></div>');
     }
     ?>
-
+</div>
 </body>
 
 </html>

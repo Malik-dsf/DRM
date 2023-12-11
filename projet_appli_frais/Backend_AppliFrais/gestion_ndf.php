@@ -2,6 +2,8 @@
 
 require_once("include\log_bdd.php"); //connection a la base de données
 include('include\theme.php');
+include("include/styles_link.php");
+
 
 $requete = $connexion->prepare("SELECT u.idroles, r.libelle FROM utilisateur u JOIN roles r ON u.idroles = r.id_role WHERE u.nom_user=:username");
 $requete->bindValue(':username', $username, PDO::PARAM_STR);

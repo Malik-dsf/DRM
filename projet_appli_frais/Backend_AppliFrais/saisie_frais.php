@@ -2,6 +2,8 @@
 
 require_once("include\log_bdd.php"); //connection a la base de données
 include ('include\theme.php');
+include("include/styles_link.php");
+
 $dateduj = date('Y-m-d');
 $jour = date('d', strtotime($dateduj));
 $mois = date('m', strtotime($dateduj));

@@ -2,7 +2,8 @@
 
 require_once("include\log_bdd.php"); //connection a la base de données
 include('include\theme.php');
-
+include("include/styles_link.php");
+  
 
 $username = $_SESSION["username"];
 $requete = $connexion->prepare("SELECT ndf.idnotedefrais, ndf.montant, ndf.moisAnnee, ndf.idStatus, s.libelle, t.libelle AS type_libelle  FROM note_de_frais ndf JOIN utilisateur u ON ndf.idUtilisateur = u.idUtilisateur JOIN status s ON ndf.idStatus = s.id_status JOIN types t ON ndf.idType = t.id_types  WHERE u.nom_user = :username");

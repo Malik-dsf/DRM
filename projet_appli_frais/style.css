@@ -487,4 +487,71 @@ label {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/********************************************************************/
 
+
+
+.dashboard-container {
+  margin: 20px;
+  padding: 20px;
+  background-color: #eee;
+  border-radius: 8px;
+}
+
+.h1_ndf{
+  text-align: center;
+}
+
+nav {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  background-color: #eee;
+}
+
+#containerMain {
+  padding-top: 80px!important;
+  margin-right: 5%!important;
+}
+
+
+.img_nav{
+  max-width: 15%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+table, th, td {
+  border: 1px solid #ddd;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #444;
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+          nav {
+              flex-direction: column;
+          }
+
+          nav a {
+              width: 100%;
+              text-align: left;
+          }
+      }

@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="media/LogoSwissPharma.png" type="image/x-icon">
   <?php
-  include("Backend_AppliFrais/include/bootstrap_link.php");
+  include("Backend_AppliFrais/include/styles_link.php");
   ?>
 </head>
 
