@@ -50,11 +50,6 @@ header {
   padding: 15px;
   text-align: center;
 }
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #412b6b;
 
 }
 nav{
