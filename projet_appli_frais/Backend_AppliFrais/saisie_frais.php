@@ -1,10 +1,21 @@
-
-
 <?php
 
 require_once("include\log_bdd.php"); //connection a la base de données
 include ('include\theme.php');
+$dateduj = date('Y-m-d');
+$jour = date('d', strtotime($dateduj));
+$mois = date('m', strtotime($dateduj));
+$annee = date('Y', strtotime($dateduj));
+if($jour > 15){
+    $mois++;
+    if($mois == 12){
+        $annee++;
+        $mois = 1;
+    }
+}
+else{
 
+}
 ?>
 
 
@@ -24,9 +35,6 @@ function ajoutLigne() {
 }
 
 </script>
-
-
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,9 +49,9 @@ function ajoutLigne() {
         <form action="traitement_saisie_frais.php" method="post">
             <h2>periode d'engagement</h2>
             <label for="mois">Mois :</label>
-            <input type="number" id="mois" name="mois" min="1" max="12" required>
+            <input type="number" id="mois" name="mois" min="1" max="12" value="<?php echo $mois; ?>" required>
             <label for="annee">Année :</label>
-            <input type="number" id="annee" name="annee" min="1900" max="9999" required>
+            <input type="number" id="annee" name="annee" min="1900" max="9999" value="<?php echo $annee; ?>" required>
 
 
         

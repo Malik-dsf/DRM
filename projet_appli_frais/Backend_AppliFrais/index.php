@@ -94,7 +94,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 <thead>
                     <tr>
                         <th>numéro de Notes de frais</th>
-                        <th>Date</th>
+                        <th>mois - Annee</th>
                         <th>Description</th>
                         <th>Montant</th>
                         <th>Status</th>
@@ -102,7 +102,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                 </thead>
                 <tbody>
                     <?php
-                    $requete = $connexion->prepare("SELECT ndf.idnotedefrais, ndf.montant, ndf.date, ndf.idStatus, s.libelle , ndf.idType, t.libelle AS type_libelle  FROM note_de_frais ndf JOIN utilisateur u ON ndf.idUtilisateur = u.idUtilisateur JOIN status s ON ndf.idStatus = s.id_status JOIN types t ON ndf.idType = t.id_types WHERE u.nom_user = :username");
+                    $requete = $connexion->prepare("SELECT ndf.idnotedefrais, ndf.montant, ndf.moisAnnee, ndf.idStatus, s.libelle , ndf.idType, t.libelle AS type_libelle  FROM note_de_frais ndf JOIN utilisateur u ON ndf.idUtilisateur = u.idUtilisateur JOIN status s ON ndf.idStatus = s.id_status JOIN types t ON ndf.idType = t.id_types WHERE u.nom_user = :username");
                     $requete->bindValue(':username', $username, PDO::PARAM_STR);
                     $requete->execute();
                     $resultats = $requete->fetchAll(PDO::FETCH_ASSOC);
@@ -112,7 +112,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                         foreach ($resultats as $resultat) {
                             echo("<tr>");
                             echo("<td>{$resultat['idnotedefrais']}</td>");
-                            echo("<td>{$resultat['date']}</td>");
+                            echo("<td>{$resultat['moisAnnee']}</td>");
                             echo("<td>{$resultat['type_libelle']}</td>");
                             echo("<td>{$resultat['montant']}€</td>");
                             echo("<td>{$resultat['libelle']}</td>");
