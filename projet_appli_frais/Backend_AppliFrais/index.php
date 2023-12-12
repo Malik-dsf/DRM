@@ -30,7 +30,7 @@ if ($resultat) {
 if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
     $messageBienvenue = "error";
 } else {
-    $messageBienvenue = "<h2>Bienvenue sur votre tableau de bord <u>" . $prenom . "</u>!</h2>";
+    $messageBienvenue = "<font style='font-weight: 900!important; font-size:40px;'>BIENVENUE</font><br>Voici votre tableau de bord <u><font style='color:#87CEFA;'>" . $prenom . "</font></u>!";
 }
 
 
@@ -46,61 +46,53 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
 </head>
 
 <body>
-<div class="containerMain" >
+<div class="containerMain">
     <div class="planche_p">
         <h2 id="messageBienV">
-        <?php
-        echo ($messageBienvenue);
-        ?>
+            <?php echo ($messageBienvenue); ?>
         </h2><br><br>
-
     </div>
 
-   
-
-
-    <div class="dashboard-container">
-
+    <div class="d-flex align-items-center">
+        <?php 
+            include("include/img-anim.php");
+        ?>
         <div class="">
-            <h3>Mes Information</h3>
-            <table>
+            <h3>Mes Informations</h3>
+            <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th>prénom</th>
-                        <th>nom</th>
-                        <th>email</th>
-                        <th>date d'Embauche</th>
-                        <th>role</th>
+                        <th>Prénom</th>
+                        <th>Nom</th>
+                        <th>Email</th>
+                        <th>Date d'Embauche</th>
+                        <th>Rôle</th>
                     </tr>
                 </thead>
                 <tbody>
-
                     <tr>
                         <?php
-                        echo ("<td>$prenom </td>");
-                        echo ("<td>$nom </td>");
-                        echo ("<td>$email </td>");
-                        echo ("<td>$dateEmbauche </td>");
-                        echo ("<td>$role </td>");
+                        echo ("<td>$prenom</td>");
+                        echo ("<td>$nom</td>");
+                        echo ("<td>$email</td>");
+                        echo ("<td>$dateEmbauche</td>");
+                        echo ("<td>$role</td>");
                         ?>
                     </tr>
-
                 </tbody>
-
             </table>
-
         </div>
     </div>
 
-
-    <div class="dashboard-container">
-        <div class="">
-            <h3>Liste de mes Frais de Notes</h3>
-            <table>
-                <thead>
+    <div class="container">
+    <div class="my-4">
+        <h3>Liste de mes Frais de Notes</h3>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-light">
                     <tr>
-                        <th>numéro de Notes de frais</th>
-                        <th>mois - Annee</th>
+                        <th>Numéro de Notes de frais</th>
+                        <th>Mois - Année</th>
                         <th>Description</th>
                         <th>Montant</th>
                         <th>Status</th>
@@ -127,41 +119,33 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
                     } else {
                         echo("<tr><td colspan='5'>Aucune note de frais trouvée.</td></tr>");
                     }
-
                     ?>
-
                 </tbody>
-
             </table>
-
         </div>
     </div>
 
-
-
     <?php
     if ($role == "Administrateur") {
-        echo ('<div class="dashboard-container">
-        <div class="">
-            <h3>gestion des Utilisateur</h3>
-            <table>
-                <thead>
-                <tr><th>id</th>
-                    <th>nom & prénom</th>
-                    <th>date Embauche</th>
-                    <th>Email</th>
-                    <th>numero téléphone</th>
-                    <th>nombre de notes affecter</th>
-                </tr>
-            </thead>
-        </div>
-        <tbody>');
+        echo ('<div class="my-4">
+            <h3>Gestion des Utilisateurs</h3>
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nom & Prénom</th>
+                            <th>Date Embauche</th>
+                            <th>Email</th>
+                            <th>Numéro Téléphone</th>
+                            <th>Nombre de Notes Affectées</th>
+                        </tr>
+                    </thead>
+                    <tbody>');
         $requete = $connexion->prepare("SELECT * FROM utilisateur");
         $requete->execute();
         $resultats = $requete->fetchAll(PDO::FETCH_ASSOC);
-        
-        
-        foreach ($resultats as $resultat){
+        foreach ($resultats as $resultat) {
             echo("<tr>");
             echo("<td>{$resultat['idUtilisateur']}</td>");
             echo("<td>{$resultat['nom']} {$resultat['prenom']}</td>");
@@ -173,18 +157,18 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
             $requete->execute();
             $resultats2 = $requete->fetchAll(PDO::FETCH_ASSOC);
             if (array_key_exists('nombre_notes', $resultats2)) {
-                echo("<td> ".$resultats2['nombre_notes'] ."</td>");
+                echo("<td> " . $resultats2['nombre_notes'] . "</td>");
             } else {
                 echo("<td> Aucune note de frais trouvée.<td>");
             }
-            
             echo("</tr>");
         }
-        
-        echo ('</tbody></div></table></div>');
+        echo ('</tbody></table></div></div>');
     }
     ?>
 </div>
+
+
 </body>
 
 </html>

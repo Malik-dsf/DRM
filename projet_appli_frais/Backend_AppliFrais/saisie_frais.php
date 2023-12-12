@@ -44,53 +44,80 @@ function ajoutLigne() {
     <title>saisie de frais</title>
 </head>
 <body>
-<div class="dashboard-container containerMain">
+<div class="containerMain tab-content" id="v-pills-tabContent">
 
         <!-- Formulaire de saisie de frais -->
-        <h3>Saisie de Frais</h3>
-        <form action="traitement_saisie_frais.php" method="post">
-            <h2>periode d'engagement</h2>
-            <label for="mois">Mois :</label>
-            <input type="number" id="mois" name="mois" min="1" max="12" value="<?php echo $mois; ?>" required>
-            <label for="annee">Année :</label>
-            <input type="number" id="annee" name="annee" min="1900" max="9999" value="<?php echo $annee; ?>" required>
-
-
-        
-            <h3>Frais au forfait</h3>
-            <label for="repmidi">repas midi :</label>
-            <input type="number" id="repmidi" name="repmidi" step="1" required>
-            <label for="nuitee">Nuitées :</label>
-            <input type="number" id="nuitee" name="nuitee" step="1" required>
-            <label for="etape">Etape :</label>
-            <input type="number" id="etape" name="etape" step="1" required>
-            <label for="km">KM :</label>
-            <input type="number" id="km" name="km" step="0.1" required>
-
-
-            <h3>Hors forfait</h3>
-            <div id="ContainerHorsForfait">
-                <div class="ligneHorsForfait">
-                    <label for="date">Date d'hors forfait :</label>
-                    <input type="date" name="dateHorsForfait[]" required>
-                    <label for="libelle">Libellé :</label>
-                    <input type="text" name="libelleHorsForfait[]" required>
-                    <label for="Qt">Quantité :</label>
-                    <input type="number" name="QtHorsForfait[]" step="1" required>
+        <h3 style='font-weight: 900!important; font-size:40px; text-transform:uppercase;'>Saisie de Frais</h3>
+        <form action="traitement_saisie_frais.php" method="post" class="container mt-5">
+            <h4 class="mb-4">Période d'engagement</h4>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="mois" class="form-label">Mois :</label>
+                    <input type="number" id="mois" name="mois" class="form-control" min="1" max="12" value="<?php echo $mois; ?>" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="annee" class="form-label">Année :</label>
+                    <input type="number" id="annee" name="annee" class="form-control" min="1900" max="9999" value="<?php echo $annee; ?>" required>
                 </div>
             </div>
-            <button type="button" onclick="ajoutLigne()">+</button>
-            
-            <h3>Hors Classification</h3>
-            <label for="justificatif">nombre de Justificatif :</label>
-            <input type="number" id="justificatif" name="justificatif" step="1" required>
-            <label for="MontantT">Montant total :</label>
-            <input type="number" id="MontantT" name="MontantT" step="0.01" required>
 
-            <button type="submit">Envoyer</button>
-            <button type="reset">Annuler</button>
+            <h4 class="mb-3">Frais au forfait</h4>
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label for="repmidi" class="form-label">Repas midi :</label>
+                    <input type="number" id="repmidi" name="repmidi" class="form-control" step="1" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="nuitee" class="form-label">Nuitées :</label>
+                    <input type="number" id="nuitee" name="nuitee" class="form-control" step="1" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="etape" class="form-label">Étape :</label>
+                    <input type="number" id="etape" name="etape" class="form-control" step="1" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="km" class="form-label">KM :</label>
+                    <input type="number" id="km" name="km" class="form-control" step="0.1" required>
+                </div>
+            </div>
 
+            <h4 class="mb-3">Hors forfait</h4>
+            <div id="ContainerHorsForfait" class="mb-3">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="date" class="form-label">Date d'hors forfait :</label>
+                        <input type="date" name="dateHorsForfait[]" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="libelle" class="form-label">Libellé :</label>
+                        <input type="text" name="libelleHorsForfait[]" class="form-control" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="Qt" class="form-label">Quantité :</label>
+                        <input type="number" name="QtHorsForfait[]" class="form-control" step="1" required>
+                    </div>
+                </div>
+            </div>
+            <button type="button" onclick="ajoutLigne()" style="background-color:#87CEFA;" class="btn btn-primary w-25 mb-3">+</button>
+
+            <h4 class="mb-3">Hors Classification</h4>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="justificatif" class="form-label">Nombre de justificatifs :</label>
+                    <input type="number" id="justificatif" name="justificatif" class="form-control" step="1" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="MontantT" class="form-label">Montant total :</label>
+                    <input type="number" id="MontantT" name="MontantT" class="form-control" step="0.01" required>
+                </div>
+            </div>
+
+            <div class="d-flex mb-5">
+                <button type="submit" class="btn btn-success mr-2">Envoyer</button>
+                <button type="reset" class="btn btn-danger ml-2">Annuler</button>
+            </div>
         </form>
+
     </div>
 </body>
 </html>

@@ -23,52 +23,54 @@
       <button id="btnAbsoluteAcc" class="btn btn-outline-light" onclick="openModal()">A propos de nous</button>
     </div>
 
+    <div>
     <div class="form login-container">
-      <div class="login-form">
-        <h5 class="card-title text-center">Bienvenue sur <font style="color:red;">Swiss</font><font style="color:green;">Pharma</font></h5>
+        <div class="login-form card">
+            <h3 class="card-title text-left" style="font-size:24px;">Bienvenue sur <br><span style="color:#87CEFA; font-size:40px;">SwissPharma</span></h3><br>
 
-      <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $username = $_POST["username"];
+                $password = $_POST["password"];
 
-        //zone SQL
-        $requete = $connexion->prepare("SELECT nom_user, motDePasse FROM utilisateur  WHERE nom_user=:username AND motDePasse=:passwords");
-        $requete->bindValue(':username', $username, PDO::PARAM_STR);
-        $requete->bindValue(':passwords', $password ,PDO::PARAM_STR);
-        $requete->execute();
+                //zone SQL
+                $requete = $connexion->prepare("SELECT nom_user, motDePasse FROM utilisateur  WHERE nom_user=:username AND motDePasse=:passwords");
+                $requete->bindValue(':username', $username, PDO::PARAM_STR);
+                $requete->bindValue(':passwords', $password, PDO::PARAM_STR);
+                $requete->execute();
 
-        // Vérification des informations d'authentification (en dur pour l'exemple)
-        if ($requete->rowCount() > 0) {
-          // Authentification réussie
-          session_start();  // Démarre une nouvelle session ou reprend la session existante
-          echo "Connexion réussie !";
-          $_SESSION["loggedin"] = true;
-          $_SESSION["username"] = $username;
-          header("Location: backend_AppliFrais/index.php");
-        } 
-        else {
-          // Authentification échouée
-          echo "<p style='padding:10px; background-color:rgba(255, 117, 117, 0.77); border-radius:6px; margin-bottom:10px;'>Nom d'utilisateur ou mot de passe incorrect.</p>";
-          }
-        }
-      ?>
+                // Vérification des informations d'authentification (en dur pour l'exemple)
+                if ($requete->rowCount() > 0) {
+                    // Authentification réussie
+                    session_start();  // Démarre une nouvelle session ou reprend la session existante
+                    echo "Connexion réussie !";
+                    $_SESSION["loggedin"] = true;
+                    $_SESSION["username"] = $username;
+                    header("Location: backend_AppliFrais/index.php");
+                } else {
+                    // Authentification échouée
+                    echo "<p style='padding:10px; background-color:rgba(255, 117, 117, 0.77); border-radius:6px; margin-bottom:10px;'>Nom d'utilisateur ou mot de passe incorrect.</p>";
+                }
+            }
+            ?>
 
-        <form action="index.php" method="POST">
-          <div class="form-group">
-              <label for="username">Nom d'utilisateur :</label>
-              <input type="text" name="username" class="form-control" id="username" placeholder="Entrez votre nom d'utilisateur" required>
-          </div>
+            <form action="index.php" method="POST">
+                <div class="form-group">
+                    <label class="d-flex align-items-center" for="username"><i class="material-symbols-outlined">account_circle</i> Nom d'utilisateur :</label>
+                    <input type="text" name="username" class="form-control" id="username" placeholder="Entrez votre nom d'utilisateur" required>
+                </div>
 
-          <div class="form-group">
-              <label for="password">Mot de passe :</label>
-              <input type="password" name="password" class="form-control" id="password" placeholder="Entrez votre mot de passe" required>
-          </div>
+                <div class="form-group">
+                    <label class="d-flex align-items-center" for="password"><i class="material-symbols-outlined">lock</i> Mot de passe :</label>
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Entrez votre mot de passe" required>
+                </div>
 
-          <button type="submit" name="connexion" class="btn btn-primary btn-block">Se connecter</button>
-        </form>
-      </div>
+                <button type="submit" name="connexion" class="btn btn-primary btn-block d-flex align-items-center justify-content-center"><span class="material-symbols-outlined">login</span> Se connecter</button>
+            </form>
+        </div>
     </div>
+</div>
+
   </div>
 
   <div id="myModal" class="modal">

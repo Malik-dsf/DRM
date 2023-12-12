@@ -1,3 +1,13 @@
+<?php 
+ session_start();
+ $username = $_SESSION["username"];
+ $requete = $connexion->prepare("SELECT u.idroles, r.libelle FROM utilisateur u JOIN roles r ON u.idroles = r.id_role WHERE u.nom_user=:username");
+ $requete->bindValue(':username', $username, PDO::PARAM_STR);
+ $requete->execute();
+ $resultat = $requete->fetch(PDO::FETCH_ASSOC);
+ $role = $resultat['libelle'];
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,26 +18,21 @@
 </head>
 <body>
 
-<nav class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-    <a href="index.php" ><img class="img_nav" src="media_back\LogoSwissPharma.png" alt="logo"></a>
-    <a href="index.php">Menu</a>
-    <a href="suivie_facture.php">Mes Notes de Frais</a>
+<nav class="nav flex-column justify-content-between ">
+    <div class="d-flex flex-column ">
+    <div id="userLog" class="d-flex align-items-center"><span style="color:#87CEFA; font-size:34px!important;" class="material-symbols-outlined">account_circle</span><p style="font-size:30px!important;"><?php echo $username; ?></p> </div>
+    <a href="index.php"><span class="material-symbols-outlined">window</span>Menu</a>
+    <a href="suivie_facture.php"><span class="material-symbols-outlined">description</span>Mes Notes de Frais</a>
 
     <?php
-        session_start();
-        $username = $_SESSION["username"];
-        $requete = $connexion->prepare("SELECT u.idroles, r.libelle FROM utilisateur u JOIN roles r ON u.idroles = r.id_role WHERE u.nom_user=:username");
-        $requete->bindValue(':username', $username, PDO::PARAM_STR);
-        $requete->execute();
-        $resultat = $requete->fetch(PDO::FETCH_ASSOC);
-        $role = $resultat['libelle'];
         if($role == "Comptable" || $role == "Administrateur"){
-            echo('<a href="gestion_ndf.php">gérer les notes de Frais</a>');
+            echo('<a href="gestion_ndf.php"><span class="material-symbols-outlined">edit_document</span>Gérer les Notes</a>');
         }
     ?>
 
-    <a href="saisie_frais.php">Nouvelles Saisies</a>
-    <a href="include\deconnexion.php">Déconnexion</a>
+    <a href="saisie_frais.php"><span class="material-symbols-outlined">note_add</span>Nouvelles Saisies</a>
+    </div>
+    <a class="justify-self-around " href="include\deconnexion.php"><span class="material-symbols-outlined">logout</span>Déconnexion</a>
 
 </nav>
 
