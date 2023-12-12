@@ -18,6 +18,14 @@
 
 <body>
   <div class="Accueil d-flex justify-content-center align-items-center">
+
+    <div id="AccRapNav" class="d-flex align-items-center">
+        <div id="div1" class="animated-content animate__animated" ></div>
+        <div id="div2" class="animated-content animate__animated"></div>
+        <div id="div3" class="animated-content animate__animated"></div>
+        <div id="div4" class="animated-content animate__animated"></div>
+    </div>
+
       <img id="img_main" src="media/LogoSwissPharma.png" alt="Image de présentation">
    
 
@@ -52,127 +60,25 @@
             }
             ?>
 
-            <form action="index.php" method="POST">
-                <div class="form-group">
-                    <label class="d-flex align-items-center" for="username"><i class="material-symbols-outlined">account_circle</i> Nom d'utilisateur :</label>
-                    <input type="text" name="username" class="form-control" id="username" placeholder="Entrez votre nom d'utilisateur" required>
-                </div>
+                <form action="index.php" method="POST">
+                    <div class="form-group">
+                        <label class="d-flex align-items-center" for="username"><i class="material-symbols-outlined">account_circle</i> Nom d'utilisateur :</label>
+                        <input type="text" name="username" class="form-control" id="username" placeholder="Entrez votre nom d'utilisateur" required>
+                    </div>
 
-                <div class="form-group">
-                    <label class="d-flex align-items-center" for="password"><i class="material-symbols-outlined">lock</i> Mot de passe :</label>
-                    <input type="password" name="password" class="form-control" id="password" placeholder="Entrez votre mot de passe" required>
-                </div>
+                    <div class="form-group">
+                        <label class="d-flex align-items-center" for="password"><i class="material-symbols-outlined">lock</i> Mot de passe :</label>
+                        <input type="password" name="password" class="form-control" id="password" placeholder="Entrez votre mot de passe" required>
+                    </div>
 
-                <button type="submit" name="connexion" class="btn btn-primary btn-block d-flex align-items-center justify-content-center"><span class="material-symbols-outlined">login</span> Se connecter</button>
-            </form>
+                    <button type="submit" name="connexion" class="btn btn-primary btn-block d-flex align-items-center justify-content-center"><span class="material-symbols-outlined">login</span> Se connecter</button>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-
   </div>
 
-  <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div class="main-section">
-              <!-- Exemple de trois cartes pour la description de l'entreprise -->
-              <div class="card">
-                <i class="fas fa-tasks"></i>
-                <h5 class="card-title">Gestion Complète des Frais</h5>
-                <p>
-                  Notre application offre une solution centralisée pour enregistrer avec précision tous les frais liés à l'activité directe, tels que les déplacements, la restauration et l'hébergement, ainsi que les activités annexes telles que les événements et les conférences.
-                </p>
-              </div>
-
-              <div class="card">
-                <i class="fas fa-calendar-check"></i>
-                <h5 class="card-title">Suivi Daté des Opérations</h5>
-                <p>
-                  Nos fonctionnalités avancées incluent un suivi daté des opérations effectuées par le service comptable, couvrant la réception des pièces, la validation des demandes de remboursement, la mise en paiement et le remboursement effectué.
-                </p>
-              </div>
-
-              <div class="card">
-                <i class="fas fa-lock"></i>
-                <h5 class="card-title">Accessibilité et Sécurité</h5>
-                <p>
-                  L'environnement de notre application est strictement réservé aux membres autorisés de notre entreprise. Chaque utilisateur doit s'authentifier avant d'accéder au contenu, garantissant ainsi la confidentialité et la sécurité des données. Tous les échanges de données sont cryptés par notre serveur Web, garantissant la sécurité des informations.
-                </p>
-              </div>
-            </div>
-
-            <section class="company-presentation">
-              <div class="containerP">
-                <div class="presentation-content">
-                  <div class="presentation-text">
-                    <h2>Présentation de l'entreprise</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur nulla vel ultricies faucibus. Sed malesuada velit nec tortor euismod condimentum.</p>
-                    <p>Integer et augue non odio tempor tincidunt. Donec sodales magna vel suscipit cursus. Quisque non efficitur odio. Fusce gravida justo ac quam accumsan, nec tincidunt mi ullamcorper.</p>
-                  </div>
-                  <div class="presentation-image">
-                    <img src="media/pexels-pixabay-257736.jpg" alt="Image de présentation">
-                  </div>
-                </div>
-              </div>
-            </section>
-
-            <div class="team-section">
-              <div class="team-member">
-                <img src="media/pexels-allan-mas-5383809.jpg" alt="Membre1">
-                <div class="member-info">
-                  <h3>Malik</h3>
-                  <p>Description du Membre 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </div>
-
-              <div class="team-member">
-                <img src="media/pexels-allan-mas-5383809.jpg" alt="Membre2">
-                <div class="member-info">
-                  <h3>Radu</h3>
-                  <p>Description du Membre 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </div>
-
-              <div class="team-member">
-                <img src="media/pexels-allan-mas-5383809.jpg" alt="Membre2">
-                <div class="member-info">
-                  <h3>Davi</h3>
-                  <p>Description du Membre 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </div>
-
-              <div class="team-member">
-                <img src="media/pexels-allan-mas-5383809.jpg" alt="Membre2">
-                <div class="member-info">
-                  <h3>Ryan</h3>
-                  <p>Description du Membre 2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-              </div>
-        <!-- Ajoutez plus de membres selon le même modèle -->
-      </div>
-
-      <section class="company-location">
-        <div class="containerL">
-          <div class="location-details">
-            <h2>Notre Emplacement</h2>
-            <p>123 Rue de l'Entreprise</p>
-            <p>Ville, Pays</p>
-            <p>Code Postal</p>
-            <p>Téléphone: +XX XXX XXX XXX</p>
-            <p>Email: contact@entreprise.com</p>
-          </div>
-          <div class="location-map">
-            <!-- Intégrez ici votre carte ou un iframe pour afficher la carte -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.73555550828!2dlongitude!3dlatitude!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDA2JzI5LjciTiAxMjjCsDQ3JzI1LjgiVw!5e0!3m2!1sen!2sus!4v1637823202940!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-          </div>
-        </div>
-      </section>
-
-        <!-- Ajoutez ici le contenu que vous souhaitez afficher dans la fenêtre modale -->
-      </div>
-    </div>
-
-    <section id="NavRapSec" class="d-flex flex-column container mb-5">
+      <section id="NavRapSec" class="d-flex flex-column container mb-5">
       <div class="navRapLigne d-flex align-items-center justify-content-between w-100">
         <span class="flex-fill"></span>
         <p class=" ml-2 mr-2">Navigation Rapide</p>
@@ -180,13 +86,25 @@
       </div>
 
       <div id="navRapidAcc" class="d-flex justify-content-around mt-2 mb-5">
-              <div class="icon d-flex flex-column align-items-center"><i class="material-symbols-outlined">design_services</i><p>Nos sérvices</p></div>
-              <div class="icon d-flex flex-column align-items-center"><i class="material-symbols-outlined">source_environment</i><p>Apropos de nous</p></div>
-              <div class="icon d-flex flex-column align-items-center"><i class="material-symbols-outlined">groups</i><p>Notre equipe</p></div>
-              <div class="icon d-flex flex-column align-items-center"><i class="material-symbols-outlined">home_pin</i><p>Notre emplacement</p></div>
+        <div class="icon d-flex flex-column align-items-center" onmouseover="showContent('div1')" >
+          <i class="material-symbols-outlined">design_services</i>
+          <p>Nos services</p>
+        </div>
+        <div class="icon d-flex flex-column align-items-center" onmouseover="showContent('div2')" >
+          <i class="material-symbols-outlined">source_environment</i>
+          <p>Apropos de nous</p>
+        </div>
+        <div class="icon d-flex flex-column align-items-center" onmouseover="showContent('div3')" >
+          <i class="material-symbols-outlined">groups</i>
+          <p>Notre equipe</p>
+        </div>
+        <div class="icon d-flex flex-column align-items-center" onmouseover="showContent('div4')" >
+          <i class="material-symbols-outlined">home_pin</i>
+          <p>Notre emplacement</p>
+        </div>
       </div>
-
     </section>
+
 
     <footer class="footer-section">
         <div>

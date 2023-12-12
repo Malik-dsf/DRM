@@ -53,7 +53,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         </h2><br><br>
     </div>
 
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center justify-content-center">
         <?php 
             include("include/img-anim.php");
         ?>
