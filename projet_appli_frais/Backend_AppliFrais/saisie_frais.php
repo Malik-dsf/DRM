@@ -47,7 +47,6 @@ function ajoutLigne() {
 <div class="containerMain tab-content" id="v-pills-tabContent">
 
         <!-- Formulaire de saisie de frais -->
-<<<<<<< HEAD
         <h3 style='font-weight: 900!important; font-size:40px; text-transform:uppercase;'>Saisie de Frais</h3>
         <form action="traitement_saisie_frais.php" method="post" class="container mt-5">
             <h4 class="mb-4">Période d'engagement</h4>
@@ -61,47 +60,6 @@ function ajoutLigne() {
                     <input type="number" id="annee" name="annee" class="form-control" min="1900" max="9999" value="<?php echo $annee; ?>" required>
                 </div>
             </div>
-=======
-        <h3>Saisie de Frais</h3>
-        <form action="traitement_saisie_frais.php" method="post">
-            <h2>periode d'engagement</h2>
-            <label for="mois">Mois :</label>
-            <input type="number" id="mois" name="mois" min="1" max="12" value="<?php echo $mois; ?>" required>
-            <label for="annee">Année :</label>
-            <input type="number" id="annee" name="annee" min="1900" max="9999" value="<?php echo $annee; ?>" required>
-
-
-        
-            <h3>Frais au forfait</h3>
-            <label for="repmidi">repas midi :</label>
-            <input type="number" id="repmidi" name="repmidi" min="0" value="0" step="1" required>
-            <label for="nuitee">Nuitées :</label>
-            <input type="number" id="nuitee" name="nuitee" min="0" value="0" step="1" required>
-            <label for="etape">Etape :</label>
-            <input type="number" id="etape" name="etape" min="0" value="0" step="1" required>
-            <label for="km">KM :</label>
-            <input type="number" id="km" name="km" min="0" value="0" step="0.1" required>
-
-
-            <h3>Hors forfait</h3>
-            <div id="ContainerHorsForfait">
-                <div class="ligneHorsForfait">
-                    <label for="date">Date d'hors forfait :</label>
-                    <input type="date" name="dateHorsForfait[]" required>
-                    <label for="libelle">Libellé :</label>
-                    <input type="text" name="libelleHorsForfait[]" required>
-                    <label for="Qt">Quantité :</label>
-                    <input type="number" name="QtHorsForfait[]" min="0" value="0" step="1" required>
-                </div>
-            </div>
-            <button type="button" onclick="ajoutLigne()">+</button>
-            
-            <h3>Hors Classification</h3>
-            <label for="justificatif">nombre de Justificatif :</label>
-            <input type="number" id="justificatif" name="justificatif" min="0" value="0" step="1" required>
-            <label for="MontantT">Montant total :</label>
-            <input type="number" id="MontantT" name="MontantT" min="0" value="0" step="0.01" required>
->>>>>>> c48c68e9b9375fa880288b7adb5b2af92c2e9da2
 
             <h4 class="mb-3">Frais au forfait</h4>
             <div class="row mb-3">
