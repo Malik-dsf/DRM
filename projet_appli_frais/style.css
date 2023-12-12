@@ -49,7 +49,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li {
 #img_main{
   margin-right: 40px;
   animation: rotate infinite 20s linear;
-  filter: brightness(50%);
+  filter: brightness(70%);
 }
 @keyframes rotate {
   from {
@@ -64,7 +64,7 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li {
 
 .Accueil {
   display: block;
-  height: 100vh!important;
+  height: 75vh!important;
 }
 
 .btn {
@@ -223,6 +223,50 @@ label {
 .btn-link:hover {
   color: #6d3caf;
 }
+
+#navRapidAcc i{
+  font-size: 50px!important;
+  color: #87CEFA; 
+  opacity: 0.75;
+  transition: 0.5s;
+}
+
+#navRapidAcc p {
+  color: #87CEFA; 
+  transition: 0.5s;
+}
+
+.icon:hover i ,.icon:hover p  {
+  scale: 1.10;
+  color: #000000!important; 
+  opacity: 1;
+  transition: 0.5s;
+}
+
+#NavRapSec:hover .navRapLigne {
+  opacity: 0;
+  transition: 1s;
+}
+
+.navRapLigne {
+  padding: 10px; /* Espacement interne */
+  border-radius: 5px; /* Coins arrondis */
+  transition: 1s;
+}
+
+.navRapLigne span {
+  height: 1px; /* Hauteur d'une ligne */
+  background-color: #87CEFA; /* Couleur de la ligne */
+  display: block; /* Permet d'utiliser la propriété height */
+}
+
+.navRapLigne p {
+  margin: 0; /* Supprime la marge par défaut du paragraphe */
+  font-weight: bold; /* Texte en gras */
+  color: #87CEFA; /* Couleur du texte */
+}
+
+
 
 /* Styles pour la section de pied de page avec un fond et des éléments de design */
 .footer-section {
@@ -528,6 +572,7 @@ nav a {
   padding: 10px;
   text-align: left;
   color: #000000;
+  transition: 0.3s;
 }
 
 #userLog {
@@ -540,6 +585,7 @@ nav a:hover {
   background-color: #87CEFA;
   scale: 1.05;
   color: #ffffff;
+  transition: 0.2s;
 }
 
 

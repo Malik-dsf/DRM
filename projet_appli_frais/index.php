@@ -18,10 +18,8 @@
 
 <body>
   <div class="Accueil d-flex justify-content-center align-items-center">
-    <div class="d-flex flex-column justify-content-center align-items-center">
       <img id="img_main" src="media/LogoSwissPharma.png" alt="Image de présentation">
-      <button id="btnAbsoluteAcc" class="btn btn-outline-light" onclick="openModal()">A propos de nous</button>
-    </div>
+   
 
     <div>
     <div class="form login-container">
@@ -173,6 +171,22 @@
         <!-- Ajoutez ici le contenu que vous souhaitez afficher dans la fenêtre modale -->
       </div>
     </div>
+
+    <section id="NavRapSec" class="d-flex flex-column container mb-5">
+      <div class="navRapLigne d-flex align-items-center justify-content-between w-100">
+        <span class="flex-fill"></span>
+        <p class=" ml-2 mr-2">Navigation Rapide</p>
+        <span class="flex-fill"></span>
+      </div>
+
+      <div id="navRapidAcc" class="d-flex justify-content-around mt-2 mb-5">
+              <div class="icon d-flex flex-column align-items-center"><i class="material-symbols-outlined">design_services</i><p>Nos sérvices</p></div>
+              <div class="icon d-flex flex-column align-items-center"><i class="material-symbols-outlined">source_environment</i><p>Apropos de nous</p></div>
+              <div class="icon d-flex flex-column align-items-center"><i class="material-symbols-outlined">groups</i><p>Notre equipe</p></div>
+              <div class="icon d-flex flex-column align-items-center"><i class="material-symbols-outlined">home_pin</i><p>Notre emplacement</p></div>
+      </div>
+
+    </section>
 
     <footer class="footer-section">
         <div>
