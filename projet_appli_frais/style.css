@@ -592,7 +592,8 @@ th {
     max-height: 500px!important;
 }
 
-@media only screen and (max-width: 600px) {
+
+@media (max-width: 1540px) {
     nav {
         flex-direction: column;
     }
@@ -600,4 +601,14 @@ th {
         width: 100%;
         text-align: left;
     }
+
+    /* Styles pour les écrans de laptop et plus petits */
+    .team-member {
+      width: 215px!important; /* Ou une autre largeur appropriée pour les écrans plus petits */
+    }
+    .team-member img {
+      width: 150px!important;
+      height: 150px!important;
+    }
+
 }
