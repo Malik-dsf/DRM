@@ -32,7 +32,7 @@
 
     <a href="saisie_frais.php"><span class="material-symbols-outlined">note_add</span>Nouvelles Saisies</a>
     </div>
-    <a class="justify-self-around " href="include\deconnexion.php"><span class="material-symbols-outlined">logout</span>Déconnexion</a>
+    <a class="justify-self-around " href="include\deconnexion.php" style="color:#87CEFA;"><span  class="material-symbols-outlined">logout</span>Déconnexion</a>
 
 </nav>
 

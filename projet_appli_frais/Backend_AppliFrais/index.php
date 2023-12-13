@@ -57,31 +57,36 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
         <?php 
             include("include/img-anim.php");
         ?>
-        <div class="">
-            <h3>Mes Informations</h3>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>Prénom</th>
-                        <th>Nom</th>
-                        <th>Email</th>
-                        <th>Date d'Embauche</th>
-                        <th>Rôle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <?php
-                        echo ("<td>$prenom</td>");
-                        echo ("<td>$nom</td>");
-                        echo ("<td>$email</td>");
-                        echo ("<td>$dateEmbauche</td>");
-                        echo ("<td>$role</td>");
-                        ?>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="card text-left">
+            <div style="background-color:transparent!important;" class="card-header">
+                <h3 class="card-title">Mes Informations</h3>
+            </div>
+            <div class="card-body">
+                <div class="row d-flex flex-column">
+                    <div class="d-flex h-auto">
+                        <i class="material-symbols-outlined">person</i>
+                        <p style="margin-bottom:0!important;"><strong>Prénom:</strong> <?php echo $prenom; ?></p>
+                    </div>
+                    <div class="d-flex h-auto">
+                        <i class="material-symbols-outlined" style="opacity:0;">person</i>
+                        <p><strong>Nom:</strong> <?php echo $nom; ?></p>
+                    </div>
+                    <div class="d-flex h-auto">
+                        <i class="material-symbols-outlined">mail</i>
+                        <p><strong>Email:</strong> <?php echo $email; ?></p>
+                    </div>
+                    <div class="d-flex h-auto">
+                        <i class="material-symbols-outlined">calendar_month</i>
+                        <p><strong>Date d'Embauche:</strong> <?php echo $dateEmbauche; ?></p>
+                    </div>
+                    <div class="d-flex h-auto">
+                        <i class="material-symbols-outlined">badge</i>
+                        <p><strong>Rôle:</strong> <?php echo $role; ?></p>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 
     <div class="container">

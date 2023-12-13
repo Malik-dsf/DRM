@@ -78,18 +78,10 @@ li {
 }
 
 
-/*-----------------------------------------------------*
+/*-----------------------------------------------------*/
 
 /* Style pour le bouton de fermeture */
 
-.close-btn {
-    cursor: pointer;
-    position: sticky;
-    display: flex;
-    justify-content: right;
-    top: 10px;
-    font-size: 24px;
-}
 
 .card-title {
     margin-bottom: 30px;
@@ -521,8 +513,14 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: #eee;
+    border-right: 1px solid #eee;
     color: #000000!important;
+    transition: 0.3s;
+}
+
+nav:hover {
+  transition: 0.3s;
+  background-color: #f9f9f9;
 }
 
 nav a {
@@ -544,7 +542,7 @@ nav a:hover {
     text-decoration: none;
     background-color: #87CEFA;
     scale: 1.05;
-    color: #ffffff;
+    color: #ffffff!important;
     transition: 0.2s;
 }
 
