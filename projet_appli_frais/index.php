@@ -62,12 +62,12 @@
 
                 <form action="index.php" method="POST">
                     <div class="form-group">
-                        <label class="d-flex align-items-center" for="username"><i class="material-symbols-outlined">account_circle</i> Nom d'utilisateur :</label>
+                        <label class="d-flex align-items-center" for="username"><span class="material-symbols-outlined">account_circle</span> Nom d'utilisateur :</label>
                         <input type="text" name="username" class="form-control" id="username" placeholder="Entrez votre nom d'utilisateur" required>
                     </div>
 
                     <div class="form-group">
-                        <label class="d-flex align-items-center" for="password"><i class="material-symbols-outlined">lock</i> Mot de passe :</label>
+                        <label class="d-flex align-items-center" for="password"><span class="material-symbols-outlined">lock</span> Mot de passe :</label>
                         <input type="password" name="password" class="form-control" id="password" placeholder="Entrez votre mot de passe" required>
                     </div>
 

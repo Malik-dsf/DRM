@@ -98,7 +98,7 @@ function ajoutLigne() {
                     </div>
                 </div>
             </div>
-            <button type="button" onclick="ajoutLigne()" style="background-color:#87CEFA;" class="btn btn-primary w-25 mb-3">+</button>
+            <button type="button" onclick="ajoutLigne()" style="background-color:#87CEFA;" class="btn btn-swiss w-25 mb-3">+</button>
 
             <h4 class="mb-3">Hors Classification</h4>
             <div class="row mb-3">
@@ -114,7 +114,7 @@ function ajoutLigne() {
 
             <div class="d-flex mb-5">
                 <button type="submit" class="btn btn-success mr-2">Envoyer</button>
-                <button type="reset" class="btn btn-danger ml-2">Annuler</button>
+                <button type="reset" class="btn btn-danger ">Annuler</button>
             </div>
         </form>
 

@@ -80,8 +80,8 @@ li {
 
 /*-----------------------------------------------------*/
 
-/* Style pour le bouton de fermeture */
 
+/* Style pour le bouton de fermeture */
 
 .card-title {
     margin-bottom: 30px;
@@ -114,22 +114,19 @@ label {
     box-shadow: 0 0 5px rgba(140, 82, 255, 0.5);
 }
 
-.btn-primary {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #8C52FF;
+.btn-swiss {
     color: #fff;
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease-in-out;
+    background-color: #87CEFA!important;
+    border-color: #87CEFA;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.btn-primary:hover {
-    background-color: #6d3caf;
+.btn-swiss:hover {
+    color: #fff;
+    background-color: #73beec!important;
+    border-color: #87CEFA!important;
 }
 
 .btn-link {
@@ -328,7 +325,7 @@ label {
 .card {
     margin: 20px;
     padding: 20px;
-    border: 1px solid #ddd;
+    border: none!important;
     border-radius: 10px;
     transition: box-shadow 0.3s ease-in-out;
 }
@@ -337,7 +334,7 @@ label {
 /* Effet de survol pour les cartes */
 
 .card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: none!important;
 }
 
 
@@ -346,7 +343,11 @@ label {
 .card i {
     font-size: 24px;
     margin-right: 10px;
-    color: #007bff;
+    color: #ffffff;
+    background-color: #87CEFA;
+    border-radius: 50%;
+    padding: 10px;
+    width: auto;
     /* Couleur bleue Bootstrap */
 }
 
@@ -373,11 +374,6 @@ label {
 
 /* Ajout d'effet de survol pour les paragraphes dans les cartes */
 
-.card p:hover {
-    color: #007bff;
-    /* Changement de couleur au survol */
-}
-
 
 /* Style pour le lien dans les cartes */
 
@@ -393,6 +389,10 @@ label {
 
 .card a:hover {
     text-decoration: underline;
+}
+
+.card-header {
+    background-color: transparent!important;
 }
 
 
@@ -519,8 +519,8 @@ nav {
 }
 
 nav:hover {
-  transition: 0.3s;
-  background-color: #f9f9f9;
+    transition: 0.3s;
+    background-color: #f9f9f9;
 }
 
 nav a {
@@ -563,33 +563,9 @@ nav a:hover {
     margin-top: 20px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-table,
-th,
-td {
-    border: 1px solid #ddd;
-}
-
-th,
-td {
-    padding: 10px;
-    text-align: left;
-}
-
-th {
-    background-color: #444;
-    color: white;
-}
-
 #freepik_stories-superhero {
     max-height: 500px!important;
 }
-
 
 @media (max-width: 1540px) {
     nav {
@@ -599,14 +575,13 @@ th {
         width: 100%;
         text-align: left;
     }
-
     /* Styles pour les écrans de laptop et plus petits */
     .team-member {
-      width: 215px!important; /* Ou une autre largeur appropriée pour les écrans plus petits */
+        width: 215px!important;
+        /* Ou une autre largeur appropriée pour les écrans plus petits */
     }
     .team-member img {
-      width: 150px!important;
-      height: 150px!important;
+        width: 150px!important;
+        height: 150px!important;
     }
-
 }
