@@ -6,7 +6,7 @@ include("include/styles_link.php");
   
 
 $username = $_SESSION["username"];
-$requete = $connexion->prepare("SELECT ndf.idnotedefrais, ndf.montant, ndf.date, ndf.idStatus, s.libelle, t.libelle AS type_libelle  FROM note_de_frais ndf JOIN utilisateur u ON ndf.idUtilisateur = u.idUtilisateur JOIN status s ON ndf.idStatus = s.id_status JOIN types t ON ndf.idType = t.id_types  WHERE u.nom_user = :username");
+$requete = $connexion->prepare("SELECT ndf.idnotedefrais, ndf.montant, ndf.mois, ndf.années, ndf.idStatus, s.libelle, t.libelle AS type_libelle  FROM note_de_frais ndf JOIN utilisateur u ON ndf.idUtilisateur = u.idUtilisateur JOIN status s ON ndf.idStatus = s.id_status JOIN types t ON ndf.idType = t.id_types  WHERE u.nom_user = :username");
 $requete->bindValue(':username', $username, PDO::PARAM_STR);
 $requete->execute();
 $resultat = $requete->fetch(PDO::FETCH_ASSOC);
@@ -39,7 +39,7 @@ $resultat = $requete->fetch(PDO::FETCH_ASSOC);
                 echo "<tr>";
                 echo "<td>{$resultat['idnotedefrais']}</td>";
                 echo "<td>{$resultat['montant']}€</td>";
-                echo "<td>{$resultat['date']}</td>";
+                echo "<td>{$resultat['mois']} - {$resultat['années']}</td>";
                 echo "<td>{$resultat['type_libelle']}</td>";
                 echo "<td>{$resultat['libelle']}</td>";
                 echo "</tr>";

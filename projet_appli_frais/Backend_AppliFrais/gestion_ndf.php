@@ -31,7 +31,7 @@ $role = $resultat['libelle'];
     <title>Gestion des Notes de Frais</title>
 </head>
 <?php
-    $requete = $connexion->prepare("SELECT ndf.idnotedefrais, ndf.montant, ndf.date, ndf.idStatus, ndf.idUtilisateur, s.libelle, u.prenom, ndf.idType, t.libelle AS type_libelle FROM note_de_frais ndf JOIN utilisateur u ON ndf.idUtilisateur = u.idUtilisateur JOIN status s ON ndf.idStatus = s.id_status JOIN types t ON ndf.idType = t.id_types ORDER BY ndf.idnotedefrais ASC");
+    $requete = $connexion->prepare("SELECT ndf.idnotedefrais, ndf.montant, ndf.mois, ndf.années, ndf.idStatus, ndf.idUtilisateur, s.libelle, u.prenom, ndf.idType, t.libelle AS type_libelle FROM note_de_frais ndf JOIN utilisateur u ON ndf.idUtilisateur = u.idUtilisateur JOIN status s ON ndf.idStatus = s.id_status JOIN types t ON ndf.idType = t.id_types ORDER BY ndf.idnotedefrais ASC");
     $requete->execute();
     $resultat = $requete->fetch(PDO::FETCH_ASSOC);
     $total = count($resultat);
@@ -56,7 +56,7 @@ $role = $resultat['libelle'];
                 echo "<td>{$resultat['idnotedefrais']}</td>";
                 echo "<td>{$resultat['montant']}€</td>";
                 echo "<td>{$resultat['type_libelle']}</td>";
-                echo "<td>{$resultat['date']}</td>";
+                echo "<td>{$resultat['mois']} - {$resultat['années']}</td>";
                 echo "<td>{$resultat['libelle']}</td>";
                 echo "<td>{$resultat['prenom']}</td>";
                 echo("<td><a href='modif_facture_d.php?id={$resultat['idnotedefrais']}'> modifier</td>");

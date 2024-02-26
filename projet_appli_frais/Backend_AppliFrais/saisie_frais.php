@@ -7,11 +7,11 @@ $username = $_SESSION["username"];
 $dateduj = date('Y-m-d');
 $jour = date('d', strtotime($dateduj));
 $mois = date('m', strtotime($dateduj));
-$annee = date('Y', strtotime($dateduj));
+$années = date('Y', strtotime($dateduj));
 if($jour > 15){
     $mois++;
     if($mois == 12){
-        $annee++;
+        $années++;
         $mois = 1;
     }
 }
@@ -56,8 +56,8 @@ function ajoutLigne() {
                     <input type="number" id="mois" name="mois" class="form-control" min="1" max="12" value="<?php echo $mois; ?>" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="annee" class="form-label">Année :</label>
-                    <input type="number" id="annee" name="annee" class="form-control" min="1900" max="9999" value="<?php echo $annee; ?>" required>
+                    <label for="années" class="form-label">Année :</label>
+                    <input type="number" id="années" name="années" class="form-control" min="1900" max="9999" value="<?php echo $années; ?>" required>
                 </div>
             </div>
 
@@ -126,9 +126,9 @@ function ajoutLigne() {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if(isset($_POST['mois'], $_POST['annee'], $_POST['MontantT'])) {
+        if(isset($_POST['mois'], $_POST['années'], $_POST['MontantT'])) {
             $mois = $_POST["mois"];
-            $annee = $_POST["annee"];
+            $années = $_POST["années"];
             $repmidi = $_POST["repmidi"];
             $nuitee = $_POST["nuitee"];
             $etape = $_POST["etape"];
@@ -139,11 +139,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $justificatif = $_POST["justificatif"];
             $MontantT = $_POST["MontantT"];
 
-            $moisAnnee = $mois . '-' . $annee;
-
             
-            $stmt = $bdd->prepare("INSERT INTO note_de_frais(moisAnnee, repmidi, nuitee, etape, km, dateHorsForfait, libelleHorsForfait, QtHorsForfait, justificatif, MontantT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssssssss", $moisAnnee, $repmidi, $nuitee, $etape, $km, $dateHorsForfait, $libelleHorsForfait, $QtHorsForfait, $justificatif, $MontantT);
+            $stmt = $bdd->prepare("INSERT INTO note_de_frais(mois, années, repmidi, nuitee, etape, km, dateHorsForfait, libelleHorsForfait, QtHorsForfait, justificatif, MontantT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssssssssss", $mois, $années, $repmidi, $nuitee, $etape, $km, $dateHorsForfait, $libelleHorsForfait, $QtHorsForfait, $justificatif, $MontantT);
             $stmt->execute();
             $stmt->close();
             header("Location: saisie_frais.php");
