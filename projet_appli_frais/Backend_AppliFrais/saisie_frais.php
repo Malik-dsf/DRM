@@ -48,7 +48,7 @@ function ajoutLigne() {
 
         <!-- Formulaire de saisie de frais -->
         <h3 style='font-weight: 900!important; font-size:40px; text-transform:uppercase;'>Saisie de Frais</h3>
-        <form action="traitement_saisie_frais.php" method="post" class="container mt-5">
+        <form action="saisie_frais.php" method="post" class="container mt-5">
             <h4 class="mb-4">Période d'engagement</h4>
             <div class="row mb-3">
                 <div class="col-md-6">
@@ -85,8 +85,12 @@ function ajoutLigne() {
             <div id="ContainerHorsForfait" class="mb-3">
                 <div class="row">
                     <div class="col-md-4">
-                        <label for="date" class="form-label">Date d'hors forfait :</label>
-                        <input type="date" name="dateHorsForfait[]" class="form-control" required>
+                        <label for="dateM" class="form-label">mois MM :</label>
+                        <input type="number" id="dateM" name="dateM[]" class="form-control" min="1" max="12" value="<?php echo $mois; ?>" required>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="dateA" class="form-label">année AAAA:</label>
+                        <input type="number" id="dateA" name="dateA[]" class="form-control" min="1900" max="9999" value="<?php echo $années; ?>" required>
                     </div>
                     <div class="col-md-4">
                         <label for="libelle" class="form-label">Libellé :</label>
@@ -133,13 +137,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $nuitee = $_POST["nuitee"];
             $etape = $_POST["etape"];
             $km = $_POST["km"];
-            $dateHorsForfait = $_POST["dateHorsForfait"];
+            $dateHorsForfaitM = $_POST["dateM"]; // Utiliser le bon nom de variable
+            $dateHorsForfaitA = $_POST["dateA"]; // Utiliser le bon nom de variable
             $libelleHorsForfait = $_POST["libelleHorsForfait"];
             $QtHorsForfait = $_POST["QtHorsForfait"];
             $justificatif = $_POST["justificatif"];
             $MontantT = $_POST["MontantT"];
 
-            
+            // Concaténer les dates mois et année si nécessaire
+            $dateHorsForfait = array();
+            foreach ($dateHorsForfaitM as $key => $value) {
+                $dateHorsForfait[] = $value . "-" . $dateHorsForfaitA[$key];
+            }
+            $dateHorsForfait = implode(", ", $dateHorsForfait);
+
             $stmt = $bdd->prepare("INSERT INTO note_de_frais(mois, années, repmidi, nuitee, etape, km, dateHorsForfait, libelleHorsForfait, QtHorsForfait, justificatif, MontantT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             $stmt->bind_param("sssssssssss", $mois, $années, $repmidi, $nuitee, $etape, $km, $dateHorsForfait, $libelleHorsForfait, $QtHorsForfait, $justificatif, $MontantT);
             $stmt->execute();
@@ -149,6 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+
 
 
 ?>
