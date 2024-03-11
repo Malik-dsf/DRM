@@ -137,8 +137,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $nuitee = $_POST["nuitee"];
             $etape = $_POST["etape"];
             $km = $_POST["km"];
-            $dateHorsForfaitM = $_POST["dateM"]; // Utiliser le bon nom de variable
-            $dateHorsForfaitA = $_POST["dateA"]; // Utiliser le bon nom de variable
+            $dateHorsForfaitM = $_POST["dateM"]; // var mois
+            $dateHorsForfaitA = $_POST["dateA"]; // var année
             $libelleHorsForfait = $_POST["libelleHorsForfait"];
             $QtHorsForfait = $_POST["QtHorsForfait"];
             $justificatif = $_POST["justificatif"];
@@ -151,10 +151,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             $dateHorsForfait = implode(", ", $dateHorsForfait);
 
-            $stmt = $bdd->prepare("INSERT INTO note_de_frais(mois, années, repmidi, nuitee, etape, km, dateHorsForfait, libelleHorsForfait, QtHorsForfait, justificatif, MontantT) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssssssss", $mois, $années, $repmidi, $nuitee, $etape, $km, $dateHorsForfait, $libelleHorsForfait, $QtHorsForfait, $justificatif, $MontantT);
+            // Préparer la requête SQL
+            $stmt = $bdd->prepare("INSERT INTO note_de_frais(date, montant, idType, idUtilisateur, idStatus, idFraisForfait, idFraisHorsForfait, Mois, Années) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?, ?)");
+
+            // Liaison des paramètres
+            $stmt->bind_param("iiiiiiii", $MontantT, $idType, $idUtilisateur, $idStatus, $idFraisForfait, $idFraisHorsForfait, $mois, $années);
+
+            // Définition des valeurs pour les variables non présentes dans votre code
+            $idType = 1; 
+            $idUtilisateur = 1; 
+            $idStatus = 1; 
+            $idFraisForfait = 1; 
+            $idFraisHorsForfait = 1;
+
+            // Exécution de la requête
             $stmt->execute();
             $stmt->close();
+            
+            // Redirection vers la page saisie_frais.php
             header("Location: saisie_frais.php");
             exit();
         }
