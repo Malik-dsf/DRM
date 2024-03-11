@@ -152,14 +152,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $dateHorsForfait = implode(", ", $dateHorsForfait);
 
             // Préparer la requête SQL
-            $stmt = $bdd->prepare("INSERT INTO note_de_frais(date, montant, idType, idUtilisateur, idStatus, idFraisForfait, idFraisHorsForfait, Mois, Années) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $connexion->prepare("INSERT INTO note_de_frais(date, montant, idType, idUtilisateur, idStatus, idFraisForfait, idFraisHorsForfait, Mois, Années) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?, ?)");
 
             // Liaison des paramètres
             $stmt->bind_param("iiiiiiii", $MontantT, $idType, $idUtilisateur, $idStatus, $idFraisForfait, $idFraisHorsForfait, $mois, $années);
-
             // Définition des valeurs pour les variables non présentes dans votre code
             $idType = 1; 
-            $idUtilisateur = 1; 
+
+
+            $username = $_SESSION["username"];
+            $requete = $connexion->prepare("SELECT idUtilisateur FROM utilisateur WHERE u.nom_user=:username");
+            $requete->bindValue(':username', $username, PDO::PARAM_STR);
+            $requete->execute();
+            $resultat = $requete->fetch(PDO::FETCH_ASSOC);
+            $idUtilisateur = $resultat['idUtilisateur'];
+
             $idStatus = 1; 
             $idFraisForfait = 1; 
             $idFraisHorsForfait = 1;
