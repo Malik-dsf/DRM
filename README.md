@@ -4,10 +4,10 @@
 Ce projet a été réalisé dans le cadre de nos études en BTS Services Informatiques aux Organisations (SIO). Il s'agit d'une application web de gestion des notes de frais développée en PHP 5, utilisant une architecture de programmation orientée objet. Pour l'interface utilisateur, nous avons intégré le framework Bootstrap afin d'optimiser le frontend.
 Membres du groupe
 
-- Malik Desenfant
 - [Malik Desenfant](https://github.com/Malik-dsf)
+- [Radu Iscra](https://github.com/1scra)
 - Davy Hu
-- Radu iscra
+
 
 <h2>Objectif</h2>
 
