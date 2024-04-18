@@ -1,6 +1,6 @@
 <h1>Projet de Gestion des Notes de Frais - README</h1>
 
-##Introduction
+<h2>Introduction</h2>
 Ce projet a été réalisé dans le cadre de nos études en BTS Services Informatiques aux Organisations (SIO). Il s'agit d'une application web de gestion des notes de frais développée en PHP 5, utilisant une architecture de programmation orientée objet. Pour l'interface utilisateur, nous avons intégré le framework Bootstrap afin d'optimiser le frontend.
 Membres du groupe
 
@@ -8,7 +8,7 @@ Membres du groupe
     Davy Hu
     Radu 
 
-##Objectif
+<h2>Objectif</h2>
 
 L'objectif principal de ce projet est de fournir une plateforme conviviale et efficace pour gérer les notes de frais. Cette application permettra aux utilisateurs de soumettre, suivre et approuver leurs notes de frais de manière simple et intuitive.
 Fonctionnalités
@@ -20,7 +20,7 @@ Fonctionnalités
     Suivi des dépenses: Visualisation des dépenses sous forme de tableaux ou de graphiques pour une meilleure compréhension des dépenses.
     Exportation de données: Possibilité d'exporter les données des notes de frais dans différents formats (PDF, CSV) pour une utilisation ultérieure.
 
-##Technologies utilisées
+<h2>Technologies utilisées</h2>
 
     PHP 5: Langage de programmation côté serveur pour la logique métier.
     Programmation Orientée Objet (POO): Architecture utilisée pour structurer et organiser le code de manière modulaire.
@@ -28,7 +28,7 @@ Fonctionnalités
     HTML/CSS: Langages de base pour la création des pages web.
     MySQL: Base de données relationnelle pour le stockage des informations des utilisateurs et des notes de frais.
 
-##Installation
+<h2>Installation</h2>
 
     Clonez ce dépôt sur votre machine locale.
     Configurez votre serveur web pour exécuter des scripts PHP.
@@ -36,6 +36,6 @@ Fonctionnalités
     Modifiez les informations de connexion à la base de données dans le fichier de configuration PHP.
     Lancez l'application via votre navigateur web en accédant à l'URL correspondante.
 
-##Contributeurs
+<h2>Contributeurs</h2>
 
 Ce projet a été réalisé grâce à la collaboration de Malik Desenfant, Davy Hu et Radu . Chaque membre du groupe a contribué de manière significative au développement de l'application en apportant ses compétences et son expertise.
