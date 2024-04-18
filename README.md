@@ -5,6 +5,7 @@ Ce projet a été réalisé dans le cadre de nos études en BTS Services Informa
 Membres du groupe
 
 - Malik Desenfant
+- [Malik Desenfant](https://github.com/Malik-dsf)
 - Davy Hu
 - Radu iscra
 
