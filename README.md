@@ -7,6 +7,7 @@ Membres du groupe
 - [Malik Desenfant](https://github.com/Malik-dsf)
 - [Radu Iscra](https://github.com/1scra)
 - Davy Hu
+- Ryan Azouane
 
 
 <h2>Objectif</h2>
